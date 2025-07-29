@@ -1,0 +1,541 @@
+@font-face {
+    font-family: Product Sans;
+    src: url(Fonts/Product\ Sans\ Regular.ttf);
+}
+@font-face {
+    font-family: Product Sans B;
+    src: url(Fonts/Product\ Sans\ Bold.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Product Sans;
+}
+html , body{
+    height: 100%;
+    width: 100%;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+  }
+
+#main{
+    width: 100%;
+    height: 100vh;
+    background-color: orangered;
+}
+
+nav{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 10vh;
+    padding: 0vw 10vw;
+    z-index: 99;
+}
+nav img{
+    margin-top: 2vh;
+    width: 8vw;
+    cursor: pointer;
+}
+nav a{
+    font-size: 2vw;
+    text-decoration: none;
+    color: #3c4043;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-weight: bold; 
+}
+nav i{
+    font-size: 1vw;
+    text-decoration: none;
+    cursor: pointer;
+    color:#fff
+}
+nav button{
+  align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 24px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: .25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  padding: 2px 24px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  will-change: transform,opacity;
+  z-index: 0;
+}
+
+nav button:hover {
+  background: #F6F9FE;
+  color: #174ea6;
+}
+
+.cntr-nav{
+    display: flex;
+    gap: 1vw;
+}
+
+nav i{
+    font-size: 1.5vw;
+}
+
+.hidden {
+    display: none;
+}
+
+.links {
+    transition: var(--transition-smooth);
+}
+
+.links.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Boutons */
+.auth-btn, .primary-btn, .secondary-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.auth-btn {
+    background: var(--primary-color);
+    color: white;
+}
+
+.primary-btn {
+    background: var(--accent-color);
+    color: white;
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.auth-btn:hover, .primary-btn:hover, .secondary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.one{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background:linear-gradient(150deg, rgb(255, 166, 0), rgb(255, 94, 0));
+}
+
+.one h1{
+    font-size: 25vw;
+    font-family: Product Sans B;
+    color: #fff;
+}
+
+#fanta{
+    position: absolute;
+    width: 40%;
+    z-index: 2;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1)0.5s;
+}
+
+#orange-cut{
+    position: absolute;
+    top: 10%;
+    left: 32%;
+    width: 15%;
+    z-index: 1;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1)0.5s;
+
+}
+
+#orange{
+    position: absolute;
+    width: 20%;
+    z-index: 3;
+    top: 55%;
+    right: 30%;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1)0.5s;
+
+}
+
+#leaf{
+    top: 10%;
+    left: 0%;
+    transform: rotate(60deg);
+    position: absolute;
+    width: 18%;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1)0.5s;
+
+}
+
+#leaf2{
+    top: 70%;
+    left: 80%;
+    transform: rotate(-90deg);
+    position: absolute;
+    width: 12%;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1)0.5s;
+
+}
+
+#leaf3{
+    position: absolute;
+    width: 20%;
+    top: 10%;
+    right: 0%;
+}
+
+.two{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background:#dd2828 ;
+}
+
+.lft-two, .rght-two{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5vh;
+    width: 50%;
+    height: 100%;
+    
+}
+
+.lft-two svg{
+    margin-top: 50vh;
+    width: 90%;
+    transform: rotateX(50deg);
+}
+
+.rght-two h1{
+    color: #fff;
+    font-size: 5vw;
+}
+
+.rght-two p{
+    font-size: 1vw;
+    color: #fff;
+    width: 80%;
+}
+
+.three{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5vw;
+    width: 100%;
+    height: 100vh;
+    background:linear-gradient(150deg, rgb(255, 166, 0), rgb(255, 94, 0));
+}
+
+.card{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2vh;
+    width: 25vw;
+    height: 75vh;
+    margin-top: 10vh;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+.card h1{
+    margin-top: 45vh;
+    font-size: 3vw;
+}
+
+.card button{
+    font-size: 1vw;
+    border-radius: 50px;
+    border: none;
+    color: #fff;
+    background-color: rgb(255, 149, 0);
+    padding: 1vw 2vw;
+    cursor: pointer;
+}
+
+#cocacola{
+    top: -15%;
+    position: absolute;
+    width: 60%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: all cubic-bezier(0.19, 1, 0.22, 1)0.5s;
+
+}
+
+#pepsi{
+    top: -15%;
+    position: absolute;
+    width: 85%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: all cubic-bezier(0.19, 1, 0.22, 1)0.5s;
+
+}
+
+.lemon{
+    top: -30%;
+    position: absolute;
+    left: 50%;
+    width: 25vw;
+    transform: translate(-50%, 0%);
+    transition: all cubic-bezier(0.19, 1, 0.22, 1)0.5s;
+}
+
+/* Conteneur du formulaire */
+.login-form {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 120vh;
+  background: rgba(0,0,0,0.6); /* pour un fond sombre */
+  z-index: 1000;
+}
+  
+.container {
+    background: rgb(255, 166, 0);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+  
+/* Titre */
+ h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+  
+/* Formulaire */
+  form {
+    display: flex;
+    flex-direction: column;
+}
+  
+.input-div,
+.email-password-div {
+    margin-bottom: 15px;
+    width: 100%;
+}
+  
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border 0.3s;
+}
+  
+input:focus {
+    border-color: #0066cc;
+    outline: none;
+}
+  
+/* Affichage du mot de passe */
+.strong-div {
+    text-align: right;
+    margin-top: 5px;
+}
+  
+.strong-div strong {
+    cursor: pointer;
+    color: #0066cc;
+    font-size: 13px;
+}
+  
+/* Bouton Sign up */
+.login button {
+    background-color: #28a745;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+  
+.login button:hover {
+    background-color: #218838;
+}
+  
+/* Mot de passe oublié */
+.forgot p {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    margin-top: 10px;
+}
+  
+/* Liens externes : Google, Facebook, etc. */
+  .links-div {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+  
+.links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+  
+.links:hover {
+    background-color: #e0e0e0;
+}
+  
+.links img {
+    height: 25px;
+    width: 25px;
+}
+  
+.links p {
+    margin: 0;
+    font-size: 15px;
+    color: #333;
+}
+
+.btn-retour {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.btn-retour:hover {
+    background-color: #e60000;
+}
+
+footer {
+    background:linear-gradient(150deg, rgb(255, 166, 0), rgb(255, 94, 0));
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.5);
+}
+  
+.footer-links a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #ffffff;
+}
+  
+footer p {
+    margin-top: 10px;
+    font-size: 14px;
+    color:black
+}
+
+
+
+
+/* Masque le menu burger par défaut */
+.burger-menu {
+    display: none;
+}
+
+/* Responsive pour les écrans de taille moyenne et plus petits */
+@media (max-width: 1024px) {
+    .cntr-nav {
+        display: none; /* Cache les onglets par défaut */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 204, 0, 0.7);
+        text-align: center;
+        padding: 10px 0;
+        z-index: 10;
+    }
+
+    /* Affiche l'icône du menu burger */
+    .burger-menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    /* Affiche les onglets lorsqu'on clique sur le menu burger */
+    .cntr-nav.show {
+        display: flex;
+    }
+
+    .cntr-nav a {
+        color: #fefefb;
+        font-weight: bold;
+        font-size: 20px;
+        text-decoration: none;
+        margin: 10px 0; /* Espacement vertical */
+    }
+}
+
+/* Pour les écrans encore plus petits (smartphones) */
+@media (max-width: 600px) {
+    .cntr-nav.show {
+        top: 50px;
+    }
+}

@@ -1,0 +1,215 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #d77a2b; /* Fond jaune abricot */
+    color: #333;
+}
+
+/* Style général de la navigation */
+nav {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 10vh;
+    padding: 0;
+    z-index: 99;
+}
+
+/* Conteneur des onglets (à gauche) */
+nav .cntr-nav {
+    display: flex;
+    gap: 2vw;
+    margin-left: 12vw; /* Onglets fixés à gauche */
+    background-color: rgba(225, 225, 225, 0.9); /* blanc presque opaque */
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* ombre douce */
+}
+
+/* Style des liens */
+nav a {
+    font-size: 2.5vw;
+    text-decoration: none;
+    color: #2d2f31;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+/* Style de l'image (fixée à droite) */
+nav img {
+    margin-top: 3vh;
+    width: 15vw;
+    cursor: pointer;
+    margin-right: 2vw; /* Image fixée à droite */
+}
+
+/* Style des icônes */
+nav i {
+    font-size: 8vw;
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Style des boutons */
+nav button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    appearance: none;
+    background-color: #fff;
+    border: none;
+    border-radius: 24px;
+    box-shadow: 
+        rgba(0, 0, 0, 0.2) 0 3px 5px -1px, 
+        rgba(0, 0, 0, 0.14) 0 6px 10px 0, 
+        rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    fill: currentcolor;
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 48px;
+    letter-spacing: 0.25px;
+    line-height: normal;
+    max-width: 100%;
+    overflow: visible;
+    padding: 2px 24px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition: 
+        box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 15ms linear 30ms,
+        transform 270ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    user-select: none;
+    touch-action: manipulation;
+    width: auto;
+    will-change: transform, opacity;
+    z-index: 0;
+}
+
+/* Hover sur les boutons */
+nav button:hover {
+    background: #F6F9FE;
+    color: #174ea6;
+}
+
+.contact-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #000000;
+}
+
+.header .brand {
+    font-weight: bold;
+    color: #000000;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-form label {
+    font-weight: bold;
+    color: #444;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.contact-form .btn {
+    display: inline-block;
+    background-color: #f37021;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form .btn:hover {
+    background-color: #d62718;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    background: #f37021;
+    color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact-info h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: #fff;
+}
+
+.contact-info .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.contact-info .social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-info .social-icons a:hover {
+    transform: scale(1.2);
+}

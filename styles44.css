@@ -1,0 +1,409 @@
+/* Base de styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4a460;
+}
+
+
+/* Header avec fond dynamique */
+header {
+    background: linear-gradient(45deg, #f4a460, #ff7f50);
+    color: rgb(19, 18, 18);
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+/* Barre de recherche */
+#search-bar {
+    padding: 10px;
+    width: 80%;
+    margin: 10px auto;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+#search-bar:focus {
+    border-color: #f4a460;
+    outline: none;
+}
+
+/* Panier latéral */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Caché par défaut */
+    width: 40vw; /* 40% de la largeur de l'écran */
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+    transition: right 0.5s ease;
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Apparition du panier lorsque le classe "open" est ajoutée */
+.cart-sidebar.open {
+    right: 0;
+}
+
+/* Contenu du panier */
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-header h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.cart-header button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #ff6347;
+}
+
+/* Produits dans le panier */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.cart-item span {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.cart-item .quantity {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item .quantity button {
+    background-color: #ff6347;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    font-size: 16px;
+}
+
+.cart-item .quantity span {
+    margin: 0 5px;
+    font-size: 18px;
+}
+
+/* Boutons dans le panier */
+.cart-footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.cart-footer button {
+    background-color: #ff6347;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.cart-footer button:hover {
+    background-color: #e55347;
+}
+
+/* Icône du panier */
+.cart-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+#cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    border-radius: 50%;
+    padding: 5px 10px;
+    color: white;
+}
+
+
+
+/* Section des filtres avec une interface moderne */
+#filters {
+    padding: 20px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pour pousser le bouton en bas */
+    height: 300px; /* Ajustez cette hauteur selon vos besoins */
+}
+
+#filters h2 {
+    font-size: 1.8rem;
+    color: #100f0f;
+    margin-bottom: 20px;
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-size: 1.2rem;
+    color: #f4a460;
+}
+
+label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+#price-filter {
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Disposition de chaque partie dans le formulaire */
+#filter-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#filter-form fieldset {
+    flex: 1;
+}
+
+#filter-form #flavors {
+    order: 1; /* Partie Saveurs à gauche */
+}
+
+#filter-form #sizes {
+    order: 2; /* Partie Taille à droite */
+}
+
+#filter-form #price {
+    order: 3; /* Partie Prix au centre en bas */
+    flex-basis: 100%;
+}
+
+/* Bouton Appliquer */
+#apply-filters {
+    background-color: #f4a460;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+    align-self: flex-end; /* Pousse le bouton en bas */
+}
+
+#apply-filters:hover {
+    background-color: #d88a54;
+    transform: translateY(-3px);
+}
+
+/* Liste des produits : disposition en grille */
+#product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 produits par ligne */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Titre "Produits" centré en haut */
+#product-list h2 {
+    font-size: 2rem;
+    color: #0e0e0d;
+    margin: 0; /* Enlève les marges supplémentaires */
+    padding-bottom: 20px; /* Espacement sous le titre */
+    grid-column: span 4; /* Occupe toute la largeur des 4 colonnes */
+    text-align: center; /* Centre le texte horizontalement */
+    margin-top: 0; /* Enlève les marges supérieures */
+}
+
+/* Carte du produit */
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Effet de survol de la carte produit */
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Image du produit */
+.product-card img {
+    max-width: 120px;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+/* Effet de zoom sur l'image du produit */
+.product-card img:hover {
+    transform: scale(1.1);
+}
+
+/* Titre du produit */
+.product-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Prix du produit */
+.product-card .price {
+    font-size: 1.1rem;
+    color: #f4a460;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Bouton du produit */
+.product-card button {
+    background-color: #f4a460;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Effet de survol du bouton */
+.product-card button:hover {
+    background-color: #d88a54;
+    transform: translateY(-3px);
+}
+
+/* Responsivité pour les écrans plus petits */
+@media screen and (max-width: 1200px) {
+    #product-list {
+        grid-template-columns: repeat(3, 1fr); /* 3 produits par ligne */
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #product-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 produits par ligne */
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #product-list {
+        grid-template-columns: 1fr; /* 1 produit par ligne */
+    }
+}
+
+/* Offres spéciales */
+#special-offers {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.promo-card {
+    width: 45%;
+    background-color: #f4a460;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.promo-card:hover {
+    transform: translateY(-5px);
+}
+
+.promo-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.promo-card p {
+    font-size: 1.1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Applique une animation d'apparition sur le contenu */
+#filters, #special-offers, #product-list {
+    animation: fadeIn 1s ease-out;
+}

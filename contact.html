@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Fanta</title>
+    <link rel="stylesheet" href="styles33.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <br>
+    <nav>
+        <img src="Assets/Fanta-Logo.png" alt="Prime-Logo">
+        <div class="cntr-nav">
+            <a href="index.php">Home</a>
+            <a href="Products.html">Products</a>
+            <a href="shop.php">Shop</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="burger-menu">
+            <i class="ri-menu-fill" id="burger-icon"></i>
+        </div>
+    </nav>
+    <br>
+    <div class="contact-page">
+        <header class="header">
+            <h1>Contactez <span class="brand">Moi</span></h1>
+            <p>Nous sommes là pour répondre à vos questions et écouter vos idées rafraîchissantes !</p>
+        </header>
+        <div class="contact-container">
+            <form class="contact-form" action="fanta.php" method="POST">
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" name="name" placeholder="Votre nom complet" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Votre adresse email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Écrivez votre message ici" rows="5" required></textarea>
+                </div>
+            
+                <!-- Ajout de reCAPTCHA -->
+                <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="6LeyZwsrAAAAAFN2W5q357s8n4SeG9ybOOsATZt0"></div>
+                </div>
+            
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
+            
+            <!-- Script pour inclure la bibliothèque reCAPTCHA de Google -->
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+            <div class="contact-info">
+                <h2>Contact Direct</h2>
+                <p><i class="fas fa-phone-alt"></i> +509 123 456 789</p>
+                <p><i class="fas fa-envelope"></i> support@fanta.com</p>
+                <h3>Suivez-nous</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <p>Adresse : 6 Rue Mayard, Crist-roi, Port-au-Prince, Haïti</p>
+                <p>&copy; 2024 prime. Tous droits réservés.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
