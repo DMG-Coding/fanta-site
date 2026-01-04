@@ -4,46 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop - Fanta</title>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- AJOUT DE REMIX ICON -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles44.css">
-    <style>
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-        }
-        
-        .cntr-nav {
-            display: flex;
-            gap: 1rem; /* Espacement entre les liens */
-            justify-content: flex-end; /* Alignement à droite */
-            flex-grow: 1; /* Permet d'occuper tout l'espace disponible */
-        }
-        .cntr-nav a {
-            color: #333;
-            text-decoration: none;
-            padding: 1rem;
-            font-size: 2rem;
-            font-weight: bold;
-        }
-        .cntr-nav a:hover {
-            color: #222121; /* Changer la couleur des liens au survol */
-        }
-        .burger-menu {
-            display: none; /* À afficher pour les écrans plus petits, via media query */
-        }
-        
-        @media (max-width: 768px) {
-            .cntr-nav {
-                display: none; /* Masquer les liens sur petits écrans */
-            }
-        
-            .burger-menu {
-                display: block; /* Afficher le menu burger sur petits écrans */
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -68,7 +32,11 @@
             <input type="text" id="search-bar" placeholder="Rechercher un produit...">
         </nav>
     </header>
-    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <section id="filters">
         <h2>Filtres</h2>
         <form id="filter-form">
@@ -195,7 +163,6 @@
             <p class="price">250 gdes</p>
             <button class="add-to-cart" data-id="13" data-name="Fanta Pomme" data-price="250" data-image="produit/fanta_PNG30.png">Ajouter au panier</button>
         </div>
-        <!-- Ajoutez plus de produits ici -->
     </section>
 
     <!-- Slide Panier -->
@@ -209,19 +176,15 @@
             <button id="clear-cart">Vider le panier</button>
             <button id="checkout" type="button">Commander</button>
 
-
             <!-- Formulaire MonCash caché au début -->
             <form id="moncash-form" action="moncashPay/exec.php" method="POST" style="display:none;">
                 <input type="hidden" id="amount-input" name="amount" value="">
-
               <input type="image" 
               src="https://sandbox.moncashbutton.digicelgroup.com/Moncash-middleware/resources/assets/images/MC_button_kr.png" 
               style="width:100px;">
             </form>
         </div>
     </div>
-    
-    <script src="shopfanta1.js"></script>
-    
+    <script src="shopfanta11.js"></script>
 </body>
 </html>

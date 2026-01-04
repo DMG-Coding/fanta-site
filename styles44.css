@@ -7,7 +7,6 @@ body {
     background-color: #f4a460;
 }
 
-
 /* Header avec fond dynamique */
 header {
     background: linear-gradient(45deg, #f4a460, #ff7f50);
@@ -15,19 +14,83 @@ header {
     text-align: center;
     padding: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 98;
 }
 
 h1 {
     font-size: 2.5rem;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin: 10px 0;
     letter-spacing: 1px;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+}
+
+.cntr-nav {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.cntr-nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.cntr-nav a:hover {
+    color: #222121;
+}
+
+.burger-menu {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Icône panier */
+.cart-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+#cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    border-radius: 50%;
+    padding: 3px 7px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
 }
 
 /* Barre de recherche */
 #search-bar {
     padding: 10px;
     width: 80%;
+    max-width: 600px;
     margin: 10px auto;
     display: block;
     border: 1px solid #ccc;
@@ -45,8 +108,10 @@ h1 {
 .cart-sidebar {
     position: fixed;
     top: 0;
-    right: -100%; /* Caché par défaut */
-    width: 40vw; /* 40% de la largeur de l'écran */
+    right: -100%;
+    width: 40vw;
+    max-width: 500px;
+    min-width: 320px;
     height: 100%;
     background-color: #fff;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
@@ -56,16 +121,15 @@ h1 {
     overflow-y: auto;
 }
 
-/* Apparition du panier lorsque le classe "open" est ajoutée */
 .cart-sidebar.open {
     right: 0;
 }
 
-/* Contenu du panier */
 .cart-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .cart-header h3 {
@@ -81,7 +145,6 @@ h1 {
     color: #ff6347;
 }
 
-/* Produits dans le panier */
 .cart-item {
     display: flex;
     justify-content: space-between;
@@ -110,11 +173,12 @@ h1 {
 .cart-item .quantity button {
     background-color: #ff6347;
     color: white;
-    padding: 5px;
+    padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
     margin: 0 5px;
     font-size: 16px;
+    border: none;
 }
 
 .cart-item .quantity span {
@@ -122,7 +186,6 @@ h1 {
     font-size: 18px;
 }
 
-/* Boutons dans le panier */
 .cart-footer {
     margin-top: 20px;
     text-align: center;
@@ -144,44 +207,13 @@ h1 {
     background-color: #e55347;
 }
 
-/* Icône du panier */
-.cart-icon {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #ff6347;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 50%;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 100;
-}
-
-#cart-count {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: red;
-    border-radius: 50%;
-    padding: 5px 10px;
-    color: white;
-}
-
-
-
-/* Section des filtres avec une interface moderne */
+/* Section des filtres */
 #filters {
     padding: 20px;
     background-color: #ffffff;
-    margin-top: 20px;
+    margin-top: 150px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Pour pousser le bouton en bas */
-    height: 300px; /* Ajustez cette hauteur selon vos besoins */
 }
 
 #filters h2 {
@@ -198,6 +230,8 @@ fieldset {
 legend {
     font-size: 1.2rem;
     color: #f4a460;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 label {
@@ -214,32 +248,19 @@ label {
     border-radius: 5px;
 }
 
-/* Disposition de chaque partie dans le formulaire */
 #filter-form {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 #filter-form fieldset {
     flex: 1;
+    min-width: 200px;
 }
 
-#filter-form #flavors {
-    order: 1; /* Partie Saveurs à gauche */
-}
-
-#filter-form #sizes {
-    order: 2; /* Partie Taille à droite */
-}
-
-#filter-form #price {
-    order: 3; /* Partie Prix au centre en bas */
-    flex-basis: 100%;
-}
-
-/* Bouton Appliquer */
 #apply-filters {
     background-color: #f4a460;
     color: white;
@@ -249,7 +270,9 @@ label {
     border-radius: 25px;
     font-size: 1rem;
     transition: background-color 0.3s, transform 0.3s;
-    align-self: flex-end; /* Pousse le bouton en bas */
+    width: 100%;
+    max-width: 200px;
+    margin-top: 20px;
 }
 
 #apply-filters:hover {
@@ -257,63 +280,54 @@ label {
     transform: translateY(-3px);
 }
 
-/* Liste des produits : disposition en grille */
+/* Liste des produits */
 #product-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 produits par ligne */
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     padding: 20px;
 }
 
-/* Titre "Produits" centré en haut */
 #product-list h2 {
     font-size: 2rem;
     color: #0e0e0d;
-    margin: 0; /* Enlève les marges supplémentaires */
-    padding-bottom: 20px; /* Espacement sous le titre */
-    grid-column: span 4; /* Occupe toute la largeur des 4 colonnes */
-    text-align: center; /* Centre le texte horizontalement */
-    margin-top: 0; /* Enlève les marges supérieures */
+    margin: 0;
+    padding-bottom: 20px;
+    grid-column: span 4;
+    text-align: center;
 }
 
-/* Carte du produit */
 .product-card {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 15px;
-    margin: 15px;
     text-align: center;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Effet de survol de la carte produit */
 .product-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Image du produit */
 .product-card img {
     max-width: 120px;
     margin-bottom: 15px;
     transition: transform 0.3s;
 }
 
-/* Effet de zoom sur l'image du produit */
 .product-card img:hover {
     transform: scale(1.1);
 }
 
-/* Titre du produit */
 .product-card h3 {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 10px;
 }
 
-/* Prix du produit */
 .product-card .price {
     font-size: 1.1rem;
     color: #f4a460;
@@ -321,7 +335,6 @@ label {
     margin-bottom: 15px;
 }
 
-/* Bouton du produit */
 .product-card button {
     background-color: #f4a460;
     color: white;
@@ -333,29 +346,9 @@ label {
     transition: background-color 0.3s, transform 0.3s;
 }
 
-/* Effet de survol du bouton */
 .product-card button:hover {
     background-color: #d88a54;
     transform: translateY(-3px);
-}
-
-/* Responsivité pour les écrans plus petits */
-@media screen and (max-width: 1200px) {
-    #product-list {
-        grid-template-columns: repeat(3, 1fr); /* 3 produits par ligne */
-    }
-}
-
-@media screen and (max-width: 800px) {
-    #product-list {
-        grid-template-columns: repeat(2, 1fr); /* 2 produits par ligne */
-    }
-}
-
-@media screen and (max-width: 500px) {
-    #product-list {
-        grid-template-columns: 1fr; /* 1 produit par ligne */
-    }
 }
 
 /* Offres spéciales */
@@ -367,10 +360,20 @@ label {
     border-radius: 8px;
     margin-top: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#special-offers h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
 .promo-card {
-    width: 45%;
+    flex: 1;
+    min-width: 250px;
     background-color: #f4a460;
     color: white;
     padding: 20px;
@@ -395,15 +398,472 @@ label {
 
 /* Animations */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#filters, #special-offers, #product-list {
+    animation: fadeIn 1s ease-out;
+}
+
+/* ========================================
+   MEDIA QUERIES - RESPONSIVE
+   ======================================== */
+
+/* Tablettes et grands écrans - 1024px */
+@media screen and (max-width: 1024px) {
+    #product-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
     }
-    to {
-        opacity: 1;
+
+    #product-list h2 {
+        grid-column: span 3;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .cart-sidebar {
+        width: 45vw;
+    }
+
+    #filters {
+        margin-top: 140px;
     }
 }
 
-/* Applique une animation d'apparition sur le contenu */
-#filters, #special-offers, #product-list {
-    animation: fadeIn 1s ease-out;
+/* Tablettes - 768px */
+@media screen and (max-width: 768px) {
+    .burger-menu {
+        display: block;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 100;
+        background: rgba(244, 164, 96, 0.9);
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    .cntr-nav {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: -280px;
+        left: 0;
+        width: 50%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: rgba(50, 50, 50, 0.98);
+        padding-top: 0;
+        padding-left: 20px;
+        padding-right: 25px;
+        padding-bottom: 280px;
+        margin: 0;
+        border-radius: 0;
+        gap: 0;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+        overflow-y: auto;
+        z-index: 99;
+    }
+
+    .cntr-nav.show {
+        display: flex;
+    }
+
+    .cntr-nav a {
+        font-size: 18px;
+        color: white;
+        padding: 15px 20px;
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .cntr-nav a:hover {
+        background-color: rgba(255,140,0,0.3);
+    }
+
+    /* Icône panier dans le menu mobile */
+    .cart-icon {
+        padding: 15px 20px;
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        justify-content: flex-start;
+    }
+
+    .cart-icon i {
+        color: white !important;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    #search-bar {
+        width: 90%;
+        font-size: 0.95rem;
+    }
+
+    .cart-sidebar {
+        width: 70vw;
+        min-width: 280px;
+    }
+
+    #filters {
+        padding: 15px;
+        margin-top: 130px;
+    }
+
+    #filters h2 {
+        font-size: 1.5rem;
+    }
+
+    #filter-form {
+        flex-direction: column;
+    }
+
+    #filter-form fieldset {
+        min-width: 100%;
+    }
+
+    #apply-filters {
+        max-width: 100%;
+    }
+
+    #product-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 15px;
+    }
+
+    #product-list h2 {
+        grid-column: span 2;
+        font-size: 1.8rem;
+    }
+
+    .product-card {
+        padding: 12px;
+    }
+
+    .product-card img {
+        max-width: 100px;
+    }
+
+    #special-offers {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .promo-card {
+        min-width: 100%;
+    }
+}
+
+/* Mobiles - 600px */
+@media screen and (max-width: 600px) {
+    header {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        margin: 5px 0;
+    }
+
+    #search-bar {
+        width: 95%;
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .cart-sidebar {
+        width: 85vw;
+        padding: 15px;
+    }
+
+    .cart-header h3 {
+        font-size: 18px;
+    }
+
+    .cart-item img {
+        width: 40px;
+        height: 40px;
+    }
+
+    #filters {
+        padding: 12px;
+        margin-top: 120px;
+    }
+
+    #filters h2 {
+        font-size: 1.3rem;
+    }
+
+    legend {
+        font-size: 1rem;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    #product-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 12px;
+    }
+
+    #product-list h2 {
+        grid-column: span 1;
+        font-size: 1.5rem;
+    }
+
+    .product-card {
+        padding: 12px;
+        max-width: 100%;
+    }
+
+    .product-card img {
+        max-width: 120px;
+    }
+
+    .product-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .product-card .price {
+        font-size: 1rem;
+    }
+
+    .product-card button {
+        padding: 10px 18px;
+        font-size: 0.95rem;
+    }
+
+    #special-offers {
+        padding: 12px;
+        margin-top: 20px;
+    }
+
+    #special-offers h2 {
+        font-size: 1.5rem;
+    }
+
+    .promo-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .promo-card p {
+        font-size: 1rem;
+    }
+}
+
+/* Petits mobiles - 460px */
+@media screen and (max-width: 460px) {
+    header {
+        padding: 10px 5px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+        letter-spacing: 0.5px;
+    }
+
+    nav {
+        padding: 0.5rem;
+    }
+
+    .burger-menu {
+        font-size: 25px;
+    }
+
+    #search-bar {
+        width: 98%;
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+
+    .cart-sidebar {
+        width: 90vw;
+        padding: 12px;
+    }
+
+    .cart-header h3 {
+        font-size: 16px;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .cart-item img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .cart-item .quantity button {
+        padding: 5px 8px;
+        font-size: 14px;
+    }
+
+    .cart-footer button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    #filters {
+        padding: 10px;
+        margin-top: 110px;
+    }
+
+    #filters h2 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    legend {
+        font-size: 0.95rem;
+    }
+
+    label {
+        font-size: 0.85rem;
+        margin-bottom: 6px;
+    }
+
+    #apply-filters {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    #product-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 10px;
+    }
+
+    #product-list h2 {
+        font-size: 1.3rem;
+        padding-bottom: 15px;
+    }
+
+    .product-card {
+        padding: 10px;
+    }
+
+    .product-card img {
+        max-width: 100px;
+    }
+
+    .product-card h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+
+    .product-card .price {
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+    }
+
+    .product-card button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    #special-offers {
+        padding: 10px;
+        margin-top: 15px;
+    }
+
+    #special-offers h2 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .promo-card {
+        padding: 15px;
+    }
+
+    .promo-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .promo-card p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Très petits écrans - 360px et moins */
+@media screen and (max-width: 360px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    .burger-menu {
+        font-size: 22px;
+    }
+
+    .cart-sidebar {
+        width: 95vw;
+        padding: 10px;
+    }
+
+    #filters {
+        padding: 8px;
+        margin-top: 100px;
+    }
+
+    #filters h2 {
+        font-size: 1.1rem;
+    }
+
+    #product-list {
+        padding: 8px;
+        gap: 10px;
+    }
+
+    #product-list h2 {
+        font-size: 1.2rem;
+    }
+
+    .product-card img {
+        max-width: 90px;
+    }
+
+    .product-card h3 {
+        font-size: 0.95rem;
+    }
+
+    .product-card button {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    #special-offers h2 {
+        font-size: 1.2rem;
+    }
+
+    .promo-card {
+        padding: 12px;
+    }
+
+    .promo-card h3 {
+        font-size: 1rem;
+    }
+
+    .promo-card p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Amélioration pour les écrans tactiles */
+@media (hover: none) and (pointer: coarse) {
+    .product-card button,
+    .cart-footer button,
+    #apply-filters {
+        -webkit-tap-highlight-color: rgba(244, 164, 96, 0.3);
+    }
 }

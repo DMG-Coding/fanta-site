@@ -1,5 +1,39 @@
 let cart = []; // Déclaration de la variable cart avant l'événement DOMContentLoaded
+
 document.addEventListener('DOMContentLoaded', () => {
+    // =============================================
+    // GESTION DU MENU BURGER
+    // =============================================
+    const burgerIcon = document.getElementById('burger-icon');
+    const cntrNav = document.querySelector('.cntr-nav');
+    
+    if (burgerIcon && cntrNav) {
+        burgerIcon.addEventListener('click', function(e) {
+            e.stopPropagation();
+            cntrNav.classList.toggle('show');
+        });
+
+        const navLinks = cntrNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                cntrNav.classList.remove('show');
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!cntrNav.contains(event.target) && !burgerIcon.contains(event.target)) {
+                cntrNav.classList.remove('show');
+            }
+        });
+
+        cntrNav.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    }
+
+    // =============================================
+    // CODE ORIGINAL DU SHOP
+    // =============================================
     const searchBar = document.getElementById('search-bar');
     const filterButton = document.getElementById('apply-filters');
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
@@ -122,6 +156,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fermer le panier
     closeCartButton.addEventListener('click', () => {
         cartSidebar.classList.remove('open');
+    });
+
+    // Fermer le panier en cliquant en dehors
+    document.addEventListener('click', function(event) {
+        const isClickInsideCart = cartSidebar.contains(event.target);
+        const isClickOnCartIcon = openCartButton && openCartButton.contains(event.target);
+        
+        if (!isClickInsideCart && !isClickOnCartIcon && cartSidebar.classList.contains('open')) {
+            cartSidebar.classList.remove('open');
+        }
+    });
+
+    cartSidebar.addEventListener('click', function(e) {
+        e.stopPropagation();
     });
 
     // Vider le panier
