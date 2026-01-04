@@ -1,11 +1,9 @@
-// =============================================
-// ATTENDRE QUE LE DOM SOIT CHARGÉ
-// =============================================
+
 document.addEventListener('DOMContentLoaded', function () {
   
-  // =============================================
+  
   // ANIMATIONS GSAP AVEC SCROLLTRIGGER
-  // =============================================
+  
   var tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".two",
@@ -37,9 +35,9 @@ document.addEventListener('DOMContentLoaded', function () {
   tl2.to("#orange-cut", { width: "18%", left: "42%", top: "204%" }, "ca");
   tl2.to("#fanta", { width: "35%", top: "210%", left: "33%" }, "ca");
 
-  // =============================================
+  
   // GESTION DU MENU BURGER
-  // =============================================
+  
   const burgerIcon = document.getElementById('burger-icon');
   const cntrNav = document.querySelector('.cntr-nav');
   
@@ -66,9 +64,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // =============================================
+  
   // GESTION DES FORMULAIRES D'AUTHENTIFICATION
-  // =============================================
+  
   const registerContainer = document.getElementById('register-container');
   const loginContainer = document.getElementById('login-container');
   
@@ -76,10 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const closeRegister = document.getElementById('closeRegister');
   const closeLogin = document.getElementById('closeLogin');
 
-  // =============================================
-  // UTILISATION DE LA DÉLÉGATION D'ÉVÉNEMENTS
-  // Pour gérer les clics sur tous les boutons (desktop et mobile)
-  // =============================================
+  
   
   document.addEventListener('click', function(e) {
     // Gestion des boutons d'inscription (desktop et mobile)
@@ -113,9 +108,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // =============================================
+  
   // FERMETURE DES FORMULAIRES
-  // =============================================
+  
   if (closeRegister) {
     closeRegister.addEventListener('click', function() {
       registerContainer.style.display = 'none';
@@ -145,9 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // =============================================
-  // AFFICHAGE/MASQUAGE DU MOT DE PASSE
-  // =============================================
+  
   const showBtn = document.getElementById('show');
   const hideBtn = document.getElementById('hide');
   const passwordField = document.getElementById('password');
@@ -172,9 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // =============================================
-  // GESTION DES LIENS DE CONNEXION SOCIALE
-  // =============================================
+ 
   const socialLinks = document.querySelectorAll('.links');
   socialLinks.forEach(link => {
     link.addEventListener('click', function() {
@@ -185,9 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // =============================================
-  // AFFICHAGE DES MESSAGES SUCCESS/ERROR
-  // =============================================
+  
   const params = new URLSearchParams(window.location.search);
   const messageElement = document.getElementById('message');
   
@@ -214,9 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 5000);
   });
 
-  // =============================================
-  // INITIALISATION DE L'INTERFACE
-  // =============================================
+  
   console.log('Script chargé avec succès');
   console.log('État de connexion:', isAuthenticated ? 'Connecté' : 'Non connecté');
 });

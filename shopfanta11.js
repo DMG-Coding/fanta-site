@@ -1,9 +1,9 @@
 let cart = []; // Déclaration de la variable cart avant l'événement DOMContentLoaded
 
 document.addEventListener('DOMContentLoaded', () => {
-    // =============================================
+    
     // GESTION DU MENU BURGER
-    // =============================================
+    
     const burgerIcon = document.getElementById('burger-icon');
     const cntrNav = document.querySelector('.cntr-nav');
     
@@ -31,9 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // =============================================
-    // CODE ORIGINAL DU SHOP
-    // =============================================
+    
+    // CODE  DU SHOP
+    
     const searchBar = document.getElementById('search-bar');
     const filterButton = document.getElementById('apply-filters');
     const addToCartButtons = document.querySelectorAll('.add-to-cart');

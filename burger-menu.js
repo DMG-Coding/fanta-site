@@ -1,13 +1,8 @@
-// =============================================
-// SCRIPT UNIVERSEL POUR LE MENU BURGER
-// À ajouter dans toutes les pages
-// =============================================
+
 
 document.addEventListener('DOMContentLoaded', function () {
   
-  // =============================================
-  // GESTION DU MENU BURGER
-  // =============================================
+ 
   const burgerIcon = document.getElementById('burger-icon');
   const cntrNav = document.querySelector('.cntr-nav');
   
@@ -45,9 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
     console.error('Burger icon ou cntr-nav non trouvé');
   }
 
-  // =============================================
+ 
   // GESTION DU PANIER (pour shop.php)
-  // =============================================
+  
   const cartIcon = document.getElementById('open-cart');
   const cartSidebar = document.getElementById('cart-sidebar');
   const closeCartBtn = document.getElementById('close-cart');
@@ -82,9 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// =============================================
-// FONCTIONS UTILITAIRES
-// =============================================
+
 function toggleMenu() {
   const cntrNav = document.querySelector('.cntr-nav');
   if (cntrNav) {
@@ -92,5 +85,5 @@ function toggleMenu() {
   }
 }
 
-// Pour debug - à retirer en production
+
 console.log('Script menu burger chargé');

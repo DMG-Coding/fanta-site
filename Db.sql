@@ -1,14 +1,12 @@
--- ====================================
--- Script SQL pour la Base de Données FANTA
--- ====================================
+
 
 -- Création de la base de données
 CREATE DATABASE IF NOT EXISTS fanta CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE fanta;
 
--- ====================================
+
 -- Table: utilisateurs
--- ====================================
+
 CREATE TABLE IF NOT EXISTS utilisateurs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(100) NOT NULL,
@@ -20,9 +18,7 @@ CREATE TABLE IF NOT EXISTS utilisateurs (
     INDEX idx_username (username)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ====================================
--- Table: messages
--- ====================================
+
 CREATE TABLE IF NOT EXISTS messages (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(150) NOT NULL,
@@ -32,9 +28,7 @@ CREATE TABLE IF NOT EXISTS messages (
     INDEX idx_date (date_envoi)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ====================================
--- Table: commandes_disponibles
--- ====================================
+
 CREATE TABLE IF NOT EXISTS commandes_disponibles (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
@@ -46,9 +40,7 @@ CREATE TABLE IF NOT EXISTS commandes_disponibles (
     INDEX idx_prix (prix)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ====================================
--- Table: commandes_placees
--- ====================================
+
 CREATE TABLE IF NOT EXISTS commandes_placees (
     id INT AUTO_INCREMENT PRIMARY KEY,
     produit_id INT NOT NULL,
@@ -66,9 +58,7 @@ CREATE TABLE IF NOT EXISTS commandes_placees (
     INDEX idx_statut (statut)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ====================================
--- Insertion des données initiales
--- ====================================
+
 
 -- Insertion des produits disponibles
 INSERT INTO commandes_disponibles (id, nom, prix, image, quantite_disponible, date_insertion) VALUES
@@ -91,9 +81,6 @@ INSERT INTO commandes_disponibles (id, nom, prix, image, quantite_disponible, da
 INSERT INTO utilisateurs (username, email, password, role, created_at) VALUES
 ('admin', 'admin@fanta.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', NOW());
 
--- ====================================
--- Vues utiles pour les statistiques
--- ====================================
 
 -- Vue: Statistiques des produits
 CREATE OR REPLACE VIEW v_stats_produits AS
@@ -123,9 +110,6 @@ FROM commandes_placees cp
 LEFT JOIN utilisateurs u ON cp.user_id = u.id
 ORDER BY cp.date_commande DESC;
 
--- ====================================
--- Procédures stockées
--- ====================================
 
 DELIMITER //
 
@@ -182,9 +166,6 @@ END //
 
 DELIMITER ;
 
--- ====================================
--- Triggers
--- ====================================
 
 DELIMITER //
 
@@ -207,25 +188,12 @@ END //
 
 DELIMITER ;
 
--- ====================================
--- Indexation pour optimisation
--- ====================================
+
 
 -- Index supplémentaires pour performances
 ALTER TABLE commandes_placees ADD INDEX idx_user_date (user_id, date_commande);
 ALTER TABLE messages ADD INDEX idx_email (email);
 
--- ====================================
--- Permissions (optionnel)
--- ====================================
 
--- Créer un utilisateur pour l'application
--- CREATE USER 'fanta_user'@'localhost' IDENTIFIED BY 'votre_mot_de_passe_securise';
--- GRANT SELECT, INSERT, UPDATE, DELETE ON fanta.* TO 'fanta_user'@'localhost';
--- FLUSH PRIVILEGES;
-
--- ====================================
--- Fin du script
--- ====================================
 
 SELECT 'Base de données FANTA créée avec succès!' AS message;

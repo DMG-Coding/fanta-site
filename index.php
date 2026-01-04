@@ -165,7 +165,7 @@
                     <input type="email" placeholder="Email" id="login-email" name="email" required>
                     <button type="submit" name="submit">Se connecter</button>
         
-                    <!-- Connexions sociales -->
+                    <!-- Connexions sociales  des plateformes si on veut ajouter l'auth-->
                     <div class="links-div">
                         <div class="links" data-url="https://accounts.google.com/signin">
                             <img src="https://cdn.pixabay.com/photo/2015/12/11/11/43/google-1088004_1280.png" width="30px">

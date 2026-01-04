@@ -1,14 +1,3 @@
--- ====================================
--- Script SQL pour FANTA - Version InfinityFree
--- ====================================
--- IMPORTANT: 
--- 1. Créez d'abord la base de données depuis le panneau cPanel
--- 2. Remplacez "votre_base_de_donnees" ci-dessous par le nom réel
--- 3. Sur InfinityFree, le format est: if0_XXXXX_fanta
--- ====================================
-
--- Supprimer les lignes CREATE DATABASE et USE
--- Utilisez phpMyAdmin et sélectionnez votre base avant d'importer
 
 -- ====================================
 -- Table: utilisateurs
@@ -29,9 +18,7 @@ CREATE TABLE utilisateurs (
     INDEX idx_username (username)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ====================================
--- Table: messages
--- ====================================
+
 CREATE TABLE messages (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(150) NOT NULL,
@@ -42,9 +29,7 @@ CREATE TABLE messages (
     INDEX idx_email (email)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ====================================
--- Table: commandes_disponibles
--- ====================================
+
 CREATE TABLE commandes_disponibles (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
@@ -56,9 +41,7 @@ CREATE TABLE commandes_disponibles (
     INDEX idx_prix (prix)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ====================================
--- Table: commandes_placees
--- ====================================
+
 CREATE TABLE commandes_placees (
     id INT AUTO_INCREMENT PRIMARY KEY,
     produit_id INT NOT NULL,
@@ -77,9 +60,7 @@ CREATE TABLE commandes_placees (
     INDEX idx_user_date (user_id, date_commande)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ====================================
--- Insertion des données initiales
--- ====================================
+
 
 -- Insertion des produits disponibles
 INSERT INTO commandes_disponibles (id, nom, prix, image, quantite_disponible, date_insertion) VALUES
@@ -102,9 +83,6 @@ INSERT INTO commandes_disponibles (id, nom, prix, image, quantite_disponible, da
 INSERT INTO utilisateurs (username, email, password, role, created_at) VALUES
 ('admin', 'admin@fanta.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', NOW());
 
--- ====================================
--- Vues utiles pour les statistiques
--- ====================================
 
 -- Vue: Statistiques des produits
 CREATE OR REPLACE VIEW v_stats_produits AS
@@ -134,9 +112,7 @@ FROM commandes_placees cp
 LEFT JOIN utilisateurs u ON cp.user_id = u.id
 ORDER BY cp.date_commande DESC;
 
--- ====================================
--- Procédures stockées
--- ====================================
+
 
 DELIMITER //
 
@@ -193,9 +169,7 @@ END //
 
 DELIMITER ;
 
--- ====================================
--- Triggers
--- ====================================
+
 
 DELIMITER //
 
@@ -218,8 +192,6 @@ END //
 
 DELIMITER ;
 
--- ====================================
--- Fin du script
--- ====================================
+
 
 SELECT 'Base de données FANTA créée avec succès!' AS message;
